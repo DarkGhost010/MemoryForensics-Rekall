@@ -24,7 +24,7 @@ def vad(sample):
 def thread(pid):
      t = session.plugins.threads(pid)
      for k in t:
-       if("windows!DllCanUnloadNow+0x2f70" in str(k["win32_start_symb"])):
+       if("kernel32!LoadLibraryW" in str(k["win32_start_symb"])):
                     dll_inject.append(pid)
                     break
      try:
